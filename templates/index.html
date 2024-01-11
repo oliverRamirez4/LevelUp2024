@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Blender</title>
+{% endblock %}
+
+{% block body %}
+<div class="main-title">
+    <h1 class = title>Blender: Your AI Chat Bot</h1>
+</div>
+<div class="chat-screen">
+    <p class="conversation">
+    {{response}}
+    </p>
+</div>
+<div class="text-input">
+    <form action="/" method="POST">
+        <div class="input-control">
+            <input type="text" name="chat" id="chat">
+        </div>
+    </form>
+</div>
+
+{% endblock %}
