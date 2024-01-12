@@ -1,28 +1,27 @@
 from flask import Flask, render_template, url_for, request, redirect
 from transformers import pipeline, Conversation
+import chatter
 
 
 
 app = Flask(__name__)
 
-#Managing the model
-model_tag = "facebook/blenderbot-400M-distill"
-chatbot = pipeline(model = model_tag)
-
-
-
-
-
+blender = chatter.chatbot()
 
 @app.route('/', methods = ['POST', 'GET'])
 def index():
-    conversation = Conversation()
+    #conversation = Conversation()
     if request.method == 'POST':
         task_content = request.form['chat']
-        conversation.add_user_input(task_content)
-        conversation = chatbot(conversation)
-        response = conversation.generated_responses[-1]
-        return render_template('index.html', response = response)
+
+        responses = blender.talk(task_content)
+
+        inputs = blender.conversation.past_user_inputs
+
+        length = list(range(len(responses)))
+
+        return render_template('index.html', responses = responses, inputs = inputs, length = length)
+
     else:
         return render_template('index.html')
 

@@ -10,13 +10,18 @@
 </div>
 <div class="chat-screen">
     <p class="conversation">
-    {{response}}
+        {% for num in length%}
+    
+        user>>> {{inputs[num]}}<br>
+        bot>>> {{responses[num]}}<br>
+
+        {% endfor %}
     </p>
 </div>
 <div class="text-input">
     <form action="/" method="POST">
         <div class="input-control">
-            <input type="text" name="chat" id="chat">
+            <input type="text" name="chat" id="chat" placeholder="input message here">
         </div>
     </form>
 </div>

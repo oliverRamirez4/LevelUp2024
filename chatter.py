@@ -1,14 +1,16 @@
 from transformers import pipeline, Conversation
 
-model_tag = "facebook/blenderbot-400M-distill"
+class chatbot():
+    model = pipeline(model = "facebook/blenderbot-400M-distill")
+        
+    def __init__(self):
+        self.conversation = Conversation()
 
-chatbot = pipeline(model = model_tag)
-
-conversation = Conversation()
-
-def talk(words):
-    print(type(words))
-    conversation.add_user_input(words)
-    conversation = chatbot(conversation)
-    return conversation.generated_responses[-1]
-
+    def talk(self, user_input):
+        self.conversation.add_user_input(user_input)
+        self.conversation = self.model(self.conversation)
+        return self.conversation.generated_responses
+    
+        
+    
+        
