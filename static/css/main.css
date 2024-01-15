@@ -60,11 +60,15 @@ body {
   align-self: center;
 }
 .choose-model .model {
-  position: relative;
-  text-align: center;
   border: 2px solid white;
   border-radius: 5px;
+  display: flex;
+  width: 15vw;
+  height: 10vw;
 }
-.choose-model .model p {
+.choose-model .model input {
+  flex-grow: 1;
+  background-color: grey;
   color: white;
+  border: none;
 }/*# sourceMappingURL=main.css.map */

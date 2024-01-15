@@ -68,12 +68,16 @@ body{
   align-self: center;
 
   .model{
-    position: relative;
-    text-align: center;
     border: 2px solid white;
     border-radius: 5px;
-    p{
-      color: white;
+    display: flex;
+    width: 15vw;
+    height: 10vw;
+    input{
+        flex-grow: 1;
+        background-color: grey;
+        color: white;
+        border: none;
     }
   }
 }

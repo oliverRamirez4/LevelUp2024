@@ -21,9 +21,18 @@ def index():
         length = list(range(len(responses)))
 
         return render_template('index.html', responses = responses, inputs = inputs, length = length)
-
     else:
         return render_template('index.html')
+
+
+
+@app.route('/model/<int:modelid>', methods = ['POST'])
+def change_model(modelid):
+    return 'HELLO'
+
+    
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
