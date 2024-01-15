@@ -28,7 +28,8 @@ def index():
 
 @app.route('/model/<int:modelid>', methods = ['POST'])
 def change_model(modelid):
-    return 'HELLO'
+    #blender.change_to_model2()
+    return render_template('index.html')
 
     
 
