@@ -8,7 +8,13 @@ app = Flask(__name__)
 
 blender = chatter.chatbot()
 
-@app.route('/', methods = ['POST', 'GET'])
+@app.route('/')
+def start():
+    blender.conversation = Conversation()
+    return render_template('index.html')
+
+#Route for when the user submits text to the model
+@app.route('/chat', methods = ['POST'])
 def index():
     #conversation = Conversation()
     if request.method == 'POST':
@@ -25,14 +31,11 @@ def index():
         return render_template('index.html')
 
 
-
-@app.route('/model/<int:modelid>', methods = ['POST'])
-def change_model(modelid):
+# Code to implement multiple models
+#@app.route('/model/<int:modelid>', methods = ['POST'])
+#ef change_model(modelid):
     #blender.change_to_model2()
-    return render_template('index.html')
-
-    
-
+    #return render_template('index.html')
 
 
 if __name__ == "__main__":
