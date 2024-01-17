@@ -51,24 +51,25 @@ body {
   margin-left: 0.5rem;
 }
 
-.choose-model {
+/*.choose-model{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4,1fr);
   grid-gap: 2rem;
   margin-top: 3rem;
   width: 75%;
   align-self: center;
-}
-.choose-model .model {
-  border: 2px solid white;
-  border-radius: 5px;
-  display: flex;
-  width: 15vw;
-  height: 10vw;
-}
-.choose-model .model input {
-  flex-grow: 1;
-  background-color: grey;
-  color: white;
-  border: none;
-}/*# sourceMappingURL=main.css.map */
+
+  .model{
+    border: 2px solid white;
+    border-radius: 5px;
+    display: flex;
+    width: 15vw;
+    height: 10vw;
+    input{
+        flex-grow: 1;
+        background-color: grey;
+        color: white;
+        border: none;
+    }
+  }
+}*//*# sourceMappingURL=main.css.map */

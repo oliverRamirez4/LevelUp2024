@@ -10,11 +10,15 @@
 </div>
 <div class="chat-screen">
     <p class="conversation">
+        {% if length is not defined %}
+        <p class="line">Welcome! This interactive chatbot allows you to talk with Facebook's 'blenderbot-400M-distill'
+            conversational machine learning model. To have a conversation, type your message then press send. </p>
+        {% endif %}
         {% for num in length%}
         <p class="line">user>>> {{inputs[num]}}<br></p>
         <p class="line">bot>>> {{responses[num]}}<br></p>
-        
 
+    
         {% endfor %}
     </p>
 </div>
@@ -27,7 +31,9 @@
         </div>
     </form>
 </div>
-<div class="choose-model">
+<!-- Below is code for implementing multiple models-->
+
+<!--  <div class="choose-model">
     
     <form class="model" action="/model/1" method="POST">
         <input type="submit" value="model1">
@@ -41,6 +47,6 @@
     <form class="model" action="/model/4" method="POST">
         <input type="submit" value="model4">
     </form>
-</div>
+</div> -->
 
 {% endblock %}
