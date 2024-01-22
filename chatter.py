@@ -11,7 +11,7 @@ class chatbot():
     def talk(self, user_input):
         self.conversation.add_user_input(user_input)
         self.conversation = self.model(self.conversation)
-        return self.conversyation.generated_responses
+        return self.conversation.generated_responses
 
 
     
