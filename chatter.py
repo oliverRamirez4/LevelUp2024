@@ -1,5 +1,7 @@
 from transformers import pipeline, Conversation, AutoTokenizer
 
+
+# Utility classs for handling the chatbot
 class chatbot():
         
     def __init__(self):
@@ -9,7 +11,7 @@ class chatbot():
     def talk(self, user_input):
         self.conversation.add_user_input(user_input)
         self.conversation = self.model(self.conversation)
-        return self.conversation.generated_responses
+        return self.conversyation.generated_responses
 
 
     
