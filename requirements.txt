@@ -1,7 +1,7 @@
 # packages in environment at /Users/oliverramirez/anaconda3/envs/levelUp:
 #
 # Name                    Version                   Build  Channel
-abseil-cpp ==20230802.0           h313beb8_2  
+abseil-cpp==20230802.0           
 accelerate                0.26.1             pyhd8ed1ab_0    conda-forge
 aiohttp                   3.9.0           py311h80987f9_0  
 aiosignal                 1.2.0              pyhd3eb1b0_0  
