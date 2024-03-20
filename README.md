@@ -4,3 +4,7 @@ I built this project while participating in the Colorado College Level Up Progra
 ## Description
 This web app was built using Flask, Hugging Face transformers, HTML, and SCSS. It was my first time working with flask and hugging face transformers. The user inputs their message in the input box and then presses send. This sends a POST http request to the flask application which returns the response of the pre-trained conversational model. The model is the [facebook/blenderbot-400M-distill](https://huggingface.co/facebook/blenderbot-400M-distill?text=Hey+my+name+is+Julien%21+How+are+you%3F) on hugging face.
 
+
+
+https://github.com/oliverRamirez4/LevelUp2024/assets/125416521/a9328775-f50f-479e-8ea4-542a900c0219
+
