@@ -10,7 +10,6 @@ blender = chatter.chatbot()
 
 @app.route('/')
 def start():
-    blender.conversation = Conversation()
     return render_template('index.html')
 
 #Route for when the user submits text to the model
@@ -18,15 +17,24 @@ def start():
 def index():
     #conversation = Conversation()
     if request.method == 'POST':
-        task_content = request.form['chat']
 
-        responses = blender.talk(task_content)
+        try:
+            task_content = request.form['chat']
 
-        inputs = blender.conversation.past_user_inputs
+            blender.talk(task_content)
 
-        length = list(range(len(responses)))
+            responses = blender.model_outputs
 
-        return render_template('index.html', responses = responses, inputs = inputs, length = length)
+            inputs = blender.user_inputs
+
+            length = list(range(len(responses)))
+
+            return render_template('index.html', responses = responses, inputs = inputs, length = length)
+        
+        except:
+            return render_template('index.html', responses = ["An Error occured with the Hugging face model"], inputs = [], length = 1)
+
+        
     else:
         return render_template('index.html')
 
