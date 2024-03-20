@@ -6,8 +6,10 @@ import chatter
 
 app = Flask(__name__)
 
+# the chatbot class to allow functionality with hugging face model
 blender = chatter.chatbot()
 
+#Flask app
 @app.route('/')
 def start():
     return render_template('index.html')
@@ -15,18 +17,22 @@ def start():
 #Route for when the user submits text to the model
 @app.route('/chat', methods = ['POST'])
 def index():
-    #conversation = Conversation()
+    # All requests should be POST requests. There are no GET requests in the app
     if request.method == 'POST':
 
         try:
             task_content = request.form['chat']
 
+            #process the chat with the chatbot
             blender.talk(task_content)
 
+            #all chatbot responses
             responses = blender.model_outputs
 
+            #all chatbot inputs 
             inputs = blender.user_inputs
 
+            #For iterating through response and inputs with jinja
             length = list(range(len(responses)))
 
             return render_template('index.html', responses = responses, inputs = inputs, length = length)
@@ -37,14 +43,6 @@ def index():
         
     else:
         return render_template('index.html')
-
-
-# Code to implement multiple models
-#@app.route('/model/<int:modelid>', methods = ['POST'])
-#ef change_model(modelid):
-    #blender.change_to_model2()
-    #return render_template('index.html')
-
 
 if __name__ == "__main__":
     app.run(debug=True)
